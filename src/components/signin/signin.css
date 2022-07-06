@@ -1,0 +1,79 @@
+.signin-form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    border: 1px solid lightgray;
+    opacity: 1;
+}
+
+.signin-header-container {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 1;
+}
+
+.form-name-container {
+    height: 50%;
+    font: normal normal medium 25px/33px Roboto;
+    font-size: larger;
+    font-weight: bold;
+    color: #0A0102;
+    opacity: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.signin-form-content {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 1;
+}
+
+.form-content {
+    text-align: left;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: lowercase;
+    opacity: 1;
+}
+
+.or-content {
+    position: relative;
+    top: 10px;
+    font-weight: bold;
+}
+
+.signin-options-container {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    opacity: 1;
+}
+
+.facebook-letter {
+    text-transform: none;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    opacity: 1;
+}
+
+.google-letter {
+    text-transform: none;
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
