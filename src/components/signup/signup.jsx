@@ -9,6 +9,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { userSignup } from '../../service/user.service';
 
 const fullNameRegex = /^[A-Z]{1}[a-z]{2,}$/;
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
@@ -77,6 +78,10 @@ function Signup(props) {
             setRegexObj((prevState) => ({...prevState,mobileNoBorder:true,mobileNoHelper: 'Enter valid mobile number'}));
         }else if(mobileNoTest === true) {
             setRegexObj((prevState) => ({...prevState,mobileNoBorder:false,mobileNoHelper: ''}));
+        }
+
+        if(fullNameTest === true && emailTest === true && passwordTest === true && mobileNoTest === true) {
+            userSignup(signupObj).then((response) => console.log(response)).catch((error) => console.log(error));
         }
     }
 

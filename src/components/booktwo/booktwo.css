@@ -1,0 +1,188 @@
+.booktwo-page-container {
+    width: 70vw;
+    height: 150vh;
+    position: relative;
+    bottom: 130px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.booktwo-section-one {
+    width: 30%;
+    height: 45%;
+}
+
+.booktwo-image-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgray;
+}
+
+.booktwo-options-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booktwo-image-content {
+    width: 85%;
+    height: 90%;
+}
+
+.booktwo-button-content {
+    font: normal normal medium 22px/27px Lato;
+    letter-spacing: 0px;
+    color: white;
+    opacity: 1;
+}
+
+.booktwo-section-two {
+    width: 65%;
+    height: 60%;
+}
+
+.booktwo-details {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.booktwo-name {
+    text-align: left;
+}
+
+.booktwo-author {
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.booktwo-rating-container {
+    width: 15%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booktwo-rating-box {
+    width: 60%;
+    height: 80%;
+    background-color: #388E3C;
+    font: normal normal bold 15px/18px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 1;
+}
+
+.booktwo-star {
+    font-size: smaller;
+}
+
+.booktwo-count {
+    color: #878787;
+    opacity: 1;
+    display: flex;
+}
+
+.booktwo-prices-container {
+    width: 30%;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.booktwo-discount-price-container {
+    font-size: xx-large;
+    font-weight: 500;
+}
+
+.booktwo-price-container {
+    text-decoration: line-through;
+    font-size: large;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.booktwo-description-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.booktwo-detail-container {
+    height: 20%;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.booktwo-preview-container {
+    height: 30%;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #373434;
+    opacity: 1;
+}
+
+.comment-form-container {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-template-container {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.comment-bar-container {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.overall-rating {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+    background-color: white;
+}
+
+.comment-box {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-button-container {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+}

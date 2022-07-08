@@ -1,0 +1,111 @@
+.book-one {
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.book-one-container {
+    height: 35vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+
+.bookone-image-container {
+    width: 50%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookone-details {
+    width: 120%;
+    height: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bookeone-image {
+    width: 100%;
+    height: 100%;
+}   
+
+.bookone-name {
+    text-align: left;
+    font-size: smaller;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.bookone-author {
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.bookone-rating-container {
+    width: 30%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookone-rating-box {
+    width: 60%;
+    height: 100%;
+    background-color: #388E3C;
+    font: normal normal bold 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    opacity: 1;
+}
+
+.bookone-star {
+    font-size: xx-small;
+}
+
+.bookone-count {
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.bookone-prices-container {
+    width: 52%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-discount-price-container {
+    font: normal normal bold 12px/16px Roboto;
+    font-size: small;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.dashboard-price-container {
+    text-decoration: line-through;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}

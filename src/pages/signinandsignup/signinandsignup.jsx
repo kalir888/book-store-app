@@ -1,8 +1,8 @@
 import React from 'react';
 import './signinandsignup.css';
-import bookstore from '../assets/bookstore.png'
-import Signin from '../components/signin/signin';
-import Signup from '../components/signup/signup';
+import bookstore from '../../assets/bookstore.png'
+import Signin from '../../components/signin/signin';
+import Signup from '../../components/signup/signup';
 
 function SigninAndSignup() {
 

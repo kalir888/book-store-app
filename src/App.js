@@ -1,10 +1,14 @@
 import './App.css';
-import SigninAndSignup from './pages/signinandsignup';
+import Header from './components/header/header';
+import Dashboard from './pages/dashboard/dashboard';
+import SigninAndSignup from './pages/signinandsignup/signinandsignup';
 
 function App() {
   return (
     <div className="App">
-      <SigninAndSignup/>
+      {/* <SigninAndSignup/> */}
+      {/* <Header/> */}
+      <Dashboard/>
     </div>
   );
 }

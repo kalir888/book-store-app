@@ -11,6 +11,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { userSignin } from '../../service/user.service';
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
@@ -51,6 +52,13 @@ function Signin(props) {
             setRegexObj((prevState) => ({...prevState,passwordBorder:true,passwordHelper: 'Enter valid password'}));
         }else if(passwordTest === true) {
             setRegexObj((prevState) => ({...prevState,passwordBorder:false,passwordHelper: ''}));
+        }
+
+        if(emailTest === true && passwordTest === true) {
+            userSignin(signinObj).then((response) => {
+                console.log(response);
+                localStorage.setItem('token', response.data.data);
+            }).catch((error) => console.log(error))
         }
     }
 

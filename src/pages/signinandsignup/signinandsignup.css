@@ -4,9 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-/*     background: #000000 0% 0% no-repeat padding-box; */
     background-color: lightgray;
-    /* opacity: 0.31; */
 }
 
 .bookstore-image-container {
@@ -29,7 +27,7 @@
 }
 
 .bookstore-image-content {
-    height: 75%;
+    height: 70%;
     width: 80%;
     opacity: 1;
     border-radius: 100%;
