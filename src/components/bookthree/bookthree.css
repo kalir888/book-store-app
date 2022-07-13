@@ -79,14 +79,15 @@
 }
 
 .bookthree-quantity-option-container {
-    width: 25%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
 }
 
 .quantity {
-    width: 50%;
+    width: 40%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 

@@ -12,9 +12,9 @@ function App() {
       {/* <SigninAndSignup/> */}
       {/* <Header/> */}
       {/* <Dashboard/> */}
-      {/* <MyCart/> */}
+      <MyCart/>
       {/* <Wishlist/> */}
-      <FinalPage/>
+      {/* <FinalPage/> */}
     </div>
   );
 }

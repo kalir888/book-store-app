@@ -68,13 +68,64 @@ function BpRadio(props) {
     );
 }
 
+const nameRegex = /^[A-Z]{1}[a-z]{2,}$/;
+const phoneNoRegex = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
+const addressRegex = /[a-zA-Z]{3,}/;
+const cityRegex = /[a-zA-Z]{3,}/;
+
 function CustomerDetails(props) {
 
-    const [CDObj, setCDObj] = React.useState({name: '', phoneNumber: 0, fullAddress: '', city: '', state: '', addressType: ''})
+    const [CDObj, setCDObj] = React.useState({name: '', phoneNumber: 0, fullAddress: '', city: '', state: '', addressType: ''});
+
+    const [regexObj, setRegexObj] = React.useState({nameBorder: false, nameHelper: '', 
+                                                    phoneNoBorder: false, phoneNoHelper: '',
+                                                    addressBorder: false, addressHelper: '',
+                                                    cityBorder: false, cityHelper: '',
+                                                    stateBorder: false, stateHelper: ''})
 
     const showSectionThree = () => {
-        props.showOrderSummary();
-        addCustomerInfo(CDObj).then((response) => console.log(response)).catch((error) => console.log(error))
+      let nameTest = nameRegex.test(CDObj.name);
+      let phoneNoTest = phoneNoRegex.test(CDObj.phoneNumber);
+      let addressTest = addressRegex.test(CDObj.fullAddress);
+      let cityTest = cityRegex.test(CDObj.city);
+      let stateTest = cityRegex.test(CDObj.state);
+
+      if(nameTest === false) {
+          setRegexObj((prevState) => ({...prevState, nameBorder:true, nameHelper: 'Enter valid FullName'}));
+      }else if(nameTest === true) {
+          setRegexObj((prevState) => ({...prevState, nameBorder:false, nameHelper: ''}));
+      }
+
+      if(phoneNoTest === false) {
+          setRegexObj((prevState) => ({...prevState,phoneNoBorder:true,phoneNoHelper: 'Enter valid Mobile Number'}));
+      }else if(phoneNoTest === true) {
+          setRegexObj((prevState) => ({...prevState,phoneNoBorder:false,phoneNoHelper: ''}));
+      }
+
+      if(addressTest === false) {
+          setRegexObj((prevState) => ({...prevState,addressBorder:true,addressHelper: 'Enter valid Address'}));
+      }else if(addressTest === true) {
+          setRegexObj((prevState) => ({...prevState,addressBorder:false,addressHelper: ''}));
+      }
+
+      if(cityTest === false) {
+          setRegexObj((prevState) => ({...prevState,cityBorder:true,cityHelper: 'Enter valid City'}));
+      }else if(cityTest === true) {
+          setRegexObj((prevState) => ({...prevState,cityBorder:false,cityHelper: ''}));
+      }
+
+      if(stateTest === false) {
+        setRegexObj((prevState) => ({...prevState,stateBorder:true,stateHelper: 'Enter valid State'}));
+      }else if(stateTest === true) {
+          setRegexObj((prevState) => ({...prevState,stateBorder:false,stateHelper: ''}));
+      }
+
+      if(nameTest === true && phoneNoTest === true && addressTest === true && cityTest === true && stateTest === true) {
+        addCustomerInfo(CDObj).then((response) => {
+          console.log(response);
+          props.showOrderSummary();
+        }).catch((error) => console.log(error));
+      }
     }
 
     const getName = (event) => {
@@ -111,15 +162,20 @@ function CustomerDetails(props) {
             </div>
             <div className='cd-form-container'>
                 <div className='cd-headform-container'>
-                    <TextField label="Full Name" variant="outlined" size="medium" sx={{width: '48%'}} onChange={getName}/>
-                    <TextField label="Mobile number" variant="outlined" size="medium" sx={{width: '48%'}} onChange={getMobileNo}/>
+                    <TextField label="Full Name" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    error={regexObj.nameBorder} helperText={regexObj.nameHelper} onChange={getName}/>
+                    <TextField label="Mobile number" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    error={regexObj.phoneNoBorder} helperText={regexObj.phoneNoHelper}onChange={getMobileNo}/>
                 </div>
                 <div className='cd-address-form-container'>
-                    <TextField multiline rows={3} label='Address' variant='outlined' sx={{width: '100%'}} onChange={getAddress}/>
+                    <TextField multiline rows={3} label='Address' variant='outlined' sx={{width: '100%'}} 
+                    error={regexObj.addressBorder} helperText={regexObj.addressHelper}onChange={getAddress}/>
                 </div>
                 <div className='cd-middleform-container'>
-                    <TextField label="City/Town" variant="outlined" size="medium" sx={{width: '48%'}} onChange={getCity}/>
-                    <TextField label="State" variant="outlined" size="medium" sx={{width: '48%'}} onChange={getState}/>
+                    <TextField label="City/Town" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    error={regexObj.cityBorder} helperText={regexObj.cityHelper}onChange={getCity}/>
+                    <TextField label="State" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    error={regexObj.stateBorder} helperText={regexObj.stateHelper}onChange={getState}/>
                 </div>
                 <FormControl className='cd-type-form-container'>
                     <FormLabel id="demo-row-radio-buttons-group-label">Type</FormLabel>
