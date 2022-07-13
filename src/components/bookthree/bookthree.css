@@ -1,0 +1,112 @@
+.book-three {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2vh;
+}
+
+.book-three-container {
+    height: 70%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.bookthree-image-container {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookthree-details {
+    width: 70%;
+    height: 7vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookethree-image {
+    width: 100%;
+    height: 100%;
+}   
+
+.bookthree-name {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.bookthree-author {
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.bookthree-prices-container {
+    width: 52%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookthree-discount-price-container {
+    font: normal normal bold 12px/16px Roboto;
+    font-size: x-large;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.bookthree-price-container {
+    text-decoration: line-through;
+    font: normal normal normal 10px/13px Roboto;
+    font-size: large;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.bookthree-quantity-option-container {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.bookthree-quantbox-container {
+    width: 40%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    border: 1px solid black;
+}
+
+.bookthree-remove-button-container {
+    width: 40%;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bookthree-remove-button-container:active {
+    background-color: lightgray;
+}

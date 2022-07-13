@@ -18,8 +18,7 @@ function BookOne(props) {
                     <Typography style={{fontSize: 'small', fontWeight: 'bold', color: "#0A0102"}} className='bookone-name'>{props.book.bookName}</Typography>
                     <Typography style={{fontSize: 'x-small'}} className='bookone-author'>by {props.book.author}</Typography>
                     <div className='bookone-rating-container'>
-                        <div className='bookone-rating-box'>4.5
-                            <span className="bookone-star">&#9733;</span>
+                        <div className='bookone-rating-box'>{props.book.rating}<span className="bookone-star">&#9733;</span>
                         </div>
                         <span className='bookone-count'>(20)</span>
                     </div>

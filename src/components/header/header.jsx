@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
 import Book from '../../assets/education.png'
-import { Typography } from '@mui/material';
+import { Typography, Divider } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -61,14 +61,17 @@ function Header() {
                 />
             </Search>
             <div className='header-options-container'>
+                <Divider orientation='vertical'/>
                 <div className='header-option'>
                     <PermIdentityOutlinedIcon fontSize='small' style={{color: 'white'}}/>
                     <Typography fontSize='small' className='header-template'>Profile</Typography>
                 </div>
+                <Divider orientation='vertical'/>
                 <div className='header-option'>
                     <ShoppingCartOutlinedIcon fontSize='small' style={{color: 'white'}}/>
                     <Typography fontSize='small' className='header-template'>Cart</Typography>
                 </div>
+                <Divider orientation='vertical'/>
             </div>
         </div>
     );

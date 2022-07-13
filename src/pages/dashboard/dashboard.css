@@ -7,6 +7,11 @@
     align-items: center;
 }
 
+.dash-bookone-page-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .dashboard-title-options-container {
     width: 70vw;
     height: 6vh;

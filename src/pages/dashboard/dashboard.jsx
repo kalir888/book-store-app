@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../components/header/header'
 import BookOne from '../../components/bookone/bookone';
-import { getAllBooks } from '../../service/data.service';
+import { getAllBooks, getCart } from '../../service/data.service';
 import { Grid, Typography } from "@mui/material";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,6 +18,8 @@ function Dashboard() {
 
     const [bookToShow, setBookToShow] = React.useState({});
 
+    const [userCart, setUserCart] = React.useState([]);
+
     const changeBookStatus = (book) => {
         setShowBookTwo(true);
         setBookToShow(book);
@@ -28,6 +30,10 @@ function Dashboard() {
             console.log(response)
             setAllBooks(response.data.data);
         }).catch((error) => console.log(error));
+        getCart().then((response) => {
+            console.log(response);
+            setUserCart(response.data.data.books)
+        })
     }, [])
 
     return (
@@ -35,8 +41,8 @@ function Dashboard() {
             <Header/>
             {
                 showBookTwo 
-                ? 
-                <BookTwo book={bookToShow}/> 
+                ?
+                <BookTwo book={bookToShow} cart={userCart}/> 
                 :
                 <>
                     <div className='dashboard-title-options-container'>
@@ -57,7 +63,7 @@ function Dashboard() {
                         </FormControl>
                     </div>
                     <Grid  container style={{width: '70vw', display: 'flex'}} className='all-books-container' spacing={2} columns={{ xs: 8, sm: 12, md: 12 }}>
-                        {allBooks.map(book => <Grid item lg={9}>
+                        {allBooks.map(book => <Grid key={book._id} item lg={9}>
                             <BookOne key={book._id} book={book} changeBookStatus={changeBookStatus}/>
                             </Grid>)}
                     </Grid>

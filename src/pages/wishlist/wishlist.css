@@ -1,0 +1,53 @@
+.wishlist-page-container {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.wishlist-title-container {
+    width: 60%;
+    height: 20vh;
+    display: flex;
+    align-items: flex-end;
+}
+
+.wishlist-books-container {
+    width: 60%;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid lightgray;
+}
+
+.wishlist-header-container {
+    width: 96.1%;
+    height: 5vh;
+    padding-left: 40px;
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: center;
+    border: 1px solid #E4E4E4;
+}
+
+.wish-booklist-container {
+    width: 100%;
+    min-height: 60vh;
+}
+
+.wish-booksect-container {
+    height: 23vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 4vh;
+}
+
+.wish-book-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

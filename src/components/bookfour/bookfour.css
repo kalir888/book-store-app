@@ -1,0 +1,79 @@
+.book-four {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.book-four-container {
+    height: 70%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2vh; 
+}
+
+.bookfour-image-container {
+    width: 23%;
+    height: 18vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookfour-details {
+    width: 70%;
+    height: 15vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookefour-image {
+    width: 100%;
+    height: 100%;
+}   
+
+.bookfour-name {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.bookfour-author {
+    text-align: left;
+    font: normal normal normal 10px/13px Roboto;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
+
+.bookfour-prices-container {
+    width: 52%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookfour-discount-price-container {
+    font: normal normal bold 12px/16px Roboto;
+    font-size: x-large;
+    letter-spacing: 0px;
+    color: #0A0102;
+    opacity: 1;
+}
+
+.bookfour-price-container {
+    text-decoration: line-through;
+    font: normal normal normal 10px/13px Roboto;
+    font-size: large;
+    letter-spacing: 0px;
+    color: #878787;
+    opacity: 1;
+}
