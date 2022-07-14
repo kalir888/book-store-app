@@ -111,3 +111,23 @@
 .bookthree-remove-button-container:active {
     background-color: lightgray;
 }
+
+@media screen and (min-width: 320px) and (max-width: 1000px) {
+    .book-three {
+        margin-bottom: 2vh;
+    }
+
+    .book-three-container {
+        height: 100%;
+        width: 100%;
+    }
+
+    .bookthree-prices-container {
+        width: 70%;
+        height: 60%;
+    }
+
+    .bookthree-quantity-option-container {
+        width: 80%;
+    }
+}

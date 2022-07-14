@@ -69,3 +69,18 @@
     margin-top: 2vh;
     border: 1px solid lightgray;
 }
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+
+    .mycart-title-container {
+        width: 100%;
+    }
+    
+    .mycart-form-container {
+        width: 100%;
+    }
+
+    .mycart-place-order-button {
+        margin-bottom: 2vh;
+    }
+}

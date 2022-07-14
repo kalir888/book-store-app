@@ -62,7 +62,7 @@ function Dashboard() {
                             </Select>
                         </FormControl>
                     </div>
-                    <Grid  container style={{width: '70vw', display: 'flex'}} className='all-books-container' spacing={2} columns={{ xs: 8, sm: 12, md: 12 }}>
+                    <Grid  container style={{width: '70vw', display: 'flex'}} className='all-books-container' spacing={2} columns={{ xs: 8, sm: 12, md: 12}}>
                         {allBooks.map(book => <Grid key={book._id} item lg={9}>
                             <BookOne key={book._id} book={book} changeBookStatus={changeBookStatus}/>
                             </Grid>)}

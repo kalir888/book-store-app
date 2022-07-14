@@ -162,9 +162,9 @@ function CustomerDetails(props) {
             </div>
             <div className='cd-form-container'>
                 <div className='cd-headform-container'>
-                    <TextField label="Full Name" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    <TextField label="Full Name" variant="outlined" size="medium" className='form-content' 
                     error={regexObj.nameBorder} helperText={regexObj.nameHelper} onChange={getName}/>
-                    <TextField label="Mobile number" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    <TextField label="Mobile number" variant="outlined" size="medium" className='form-content' 
                     error={regexObj.phoneNoBorder} helperText={regexObj.phoneNoHelper}onChange={getMobileNo}/>
                 </div>
                 <div className='cd-address-form-container'>
@@ -172,9 +172,9 @@ function CustomerDetails(props) {
                     error={regexObj.addressBorder} helperText={regexObj.addressHelper}onChange={getAddress}/>
                 </div>
                 <div className='cd-middleform-container'>
-                    <TextField label="City/Town" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    <TextField label="City/Town" variant="outlined" size="medium" className='form-content' 
                     error={regexObj.cityBorder} helperText={regexObj.cityHelper}onChange={getCity}/>
-                    <TextField label="State" variant="outlined" size="medium" sx={{width: '48%'}} 
+                    <TextField label="State" variant="outlined" size="medium" className='form-content' 
                     error={regexObj.stateBorder} helperText={regexObj.stateHelper}onChange={getState}/>
                 </div>
                 <FormControl className='cd-type-form-container'>
@@ -193,7 +193,7 @@ function CustomerDetails(props) {
                     ?
                     <div></div>
                     :
-                    <Button variant='contained' size='small' sx={{width: '8vw'}} onClick={showSectionThree}>
+                    <Button variant='contained' size='small' className='continue-button' onClick={showSectionThree}>
                         <Typography sx={{color: '#FFFFFF'}}>Continue</Typography>
                     </Button>
                 }

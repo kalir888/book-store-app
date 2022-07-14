@@ -4,8 +4,10 @@ import './finalpage.css';
 import StarOne from '../../assets/upstar.PNG';
 import StarTwo from '../../assets/downstar.PNG';
 import { Button, Divider, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function FinalPage(props) {
+function FinalPage() {
+    const navigate = useNavigate();
     return (
         <div className='finalpage-container'>
             <Header/>
@@ -50,7 +52,7 @@ function FinalPage(props) {
                     </div>
                 </div>
                 <div className='continue-shopping-container'>
-                    <Button variant='contained'>
+                    <Button variant='contained' onClick={() => navigate('/Dashboard')}>
                         <Typography sx={{color: '#FFFFFF', font: 'normal normal medium 14px/17px Lato'}}>Continue Shopping</Typography>
                     </Button>
                 </div>

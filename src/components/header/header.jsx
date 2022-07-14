@@ -7,6 +7,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useNavigate } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -45,13 +46,16 @@ const Search = styled('div')(({ theme }) => ({
   }));
 
 function Header() {
+
+    const navigate = useNavigate();
+
     return (
         <div className='header-container'>
             <div className='header-section-one'>
                 <img src={Book} alt="book" />
                 <Typography className='store-title-container'>Bookstore</Typography>
             </div>
-            <Search style={{width: '40%', height: '60%', display: 'flex', alignItems: 'center' }}>
+            <Search className='searchbar' style={{ width: '40%',height: '60%'}}>
                 <SearchIconWrapper>
                 <SearchIcon/>
                 </SearchIconWrapper>
@@ -67,7 +71,7 @@ function Header() {
                     <Typography fontSize='small' className='header-template'>Profile</Typography>
                 </div>
                 <Divider orientation='vertical'/>
-                <div className='header-option'>
+                <div className='header-option' onClick={() => navigate('/Dashboard/MyCart')}>
                     <ShoppingCartOutlinedIcon fontSize='small' style={{color: 'white'}}/>
                     <Typography fontSize='small' className='header-template'>Cart</Typography>
                 </div>

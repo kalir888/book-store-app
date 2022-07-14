@@ -10,6 +10,7 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { userSignup } from '../../service/user.service';
+import { Link } from "react-router-dom";
 
 const fullNameRegex = /^[A-Z]{1}[a-z]{2,}$/;
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
@@ -19,7 +20,6 @@ const mobileNoRegex = /^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$/;
 function Signup(props) {
 
     const [showPassword, setShowPassword] = React.useState(false);
-
     const [signupObj, setSignupObj] = React.useState({fullName: '', email: '', password: '', mobileNo: ''});
     const [regexObj, setRegexObj] = React.useState({fullNameBorder: false, fullNameHelper: '', 
                                                     emailBorder: false, emailHelper: '',
@@ -81,7 +81,10 @@ function Signup(props) {
         }
 
         if(fullNameTest === true && emailTest === true && passwordTest === true && mobileNoTest === true) {
-            userSignup(signupObj).then((response) => console.log(response)).catch((error) => console.log(error));
+            userSignup(signupObj).then((response) => {
+                console.log(response);
+                
+            }).catch((error) => console.log(error));
         }
     }
 
@@ -92,11 +95,11 @@ function Signup(props) {
                 <div className='form-name-container' >signup</div>
             </div>
             <div className='signup-form-content'>
-                <TextField label="Full Name" variant="outlined" size="small" className='form-content' 
+                <TextField sx={{width: '65%' }} label="Full Name" variant="outlined" size="small" className='form-content' 
                 onChange={getFullName} error={regexObj.fullNameBorder} helperText={regexObj.fullNameHelper}/>
-                <TextField label="Email id" variant="outlined" size="small" className='form-content'
+                <TextField sx={{width: '65%' }} label="Email id" variant="outlined" size="small" className='form-content'
                 onChange={getEmail} error={regexObj.emailBorder} helperText={regexObj.emailHelper}/>
-                <FormControl sx={{width: '65%', height: '13%'}} variant="outlined" size="small">
+                <FormControl sx={{width: '65%', height: '8%'}} variant="outlined" size="small">
                     <InputLabel htmlFor="outlined-adornment-password" error={regexObj.passwordBorder}>Password</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-password"
@@ -116,9 +119,9 @@ function Signup(props) {
                         label="Password" error={regexObj.passwordBorder}/>
                         <FormHelperText id="outlined-adornment-password" error={regexObj.passwordBorder}>{regexObj.passwordHelper}</FormHelperText>
                 </FormControl>
-                <TextField label="Mobile Number" variant="outlined" size="small" className='form-content' 
+                <TextField sx={{width: '65%' }} label="Mobile Number" variant="outlined" size="small" className='form-content' 
                 onChange={getMobileNo} error={regexObj.mobileNoBorder} helperText={regexObj.mobileNoHelper}/>
-                <Button variant='contained' style={{width: 220, backgroundColor: "#A03037", opacity: 1}} size="small" onClick={testUserDetails}>signup</Button>
+                <Button variant='contained' style={{width: '65%', backgroundColor: "#A03037", opacity: 1}} size="small" onClick={testUserDetails}>signup</Button>
             </div>
 
         </div>

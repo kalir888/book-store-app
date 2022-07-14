@@ -41,7 +41,6 @@
 .booktwo-quantity {
     width: 45%;
     display: flex;
-    border: 1px solid red;
 }
 
 .booktwo-quantbox-container {
@@ -218,4 +217,69 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .booktwo-page-container {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .booktwo-section-one {
+        width: 100%;
+        height: 45%;
+    }
+
+    .booktwo-section-two {
+        width: 110%;
+        height: 100%;
+    }
+
+    .comment-form-container {
+        height: 40%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .booktwo-rating-container {
+        width: 30%;
+    }
+
+    .booktwo-prices-container {
+        width: 70%;
+        height: 25%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .booktwo-page-container {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .booktwo-section-one {
+        width: 100%;
+        height: 45%;
+    }
+
+    .booktwo-section-two {
+        width: 70%;
+        height: 100%;
+    }
+
+    .comment-form-container {
+        height: 40%;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .booktwo-rating-container {
+        width: 20%;
+        height: 10%;
+    }
+
+    .booktwo-prices-container {
+        width: 50%;
+        height: 25%;
+    }
 }

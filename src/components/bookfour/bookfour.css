@@ -77,3 +77,23 @@
     color: #878787;
     opacity: 1;
 }
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .book-four-container {
+        width: 100%;
+    }
+
+    .bookfour-prices-container {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .book-four-container {
+        width: 100%;
+    }
+
+    .bookfour-prices-container {
+        width: 70%;
+    }
+}

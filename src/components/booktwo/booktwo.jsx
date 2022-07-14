@@ -7,8 +7,11 @@ import StarIcon from '@mui/icons-material/Star';
 import { addComment, addToCart, addToWishlist, getAllComments, getCart, updateCart } from '../../service/data.service';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
+import { useNavigate } from 'react-router-dom';
 
 function BookTwo(props) {
+
+    const navigate = useNavigate();
 
     const [allComments, setAllComments] = React.useState([]);
 
@@ -76,6 +79,7 @@ function BookTwo(props) {
     const addToList = () => {
         addToWishlist(props.book._id).then((response) => {
             console.log(response);
+            navigate('/Dashboard/Wishlist');
         }).catch((error) => console.log(error));
     }
 

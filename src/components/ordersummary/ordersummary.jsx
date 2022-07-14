@@ -2,8 +2,19 @@ import React from 'react';
 import BookFour from '../bookfour/bookfour';
 import { Button, Typography } from '@mui/material';
 import './ordersummary.css';
+import { useNavigate } from 'react-router-dom'
+import { placeOrder } from '../../service/data.service';
 
 function OrderSummary(props) {
+
+    const navigate = useNavigate();
+
+    const placeTheOrder = () => {
+        placeOrder().then((response) => {
+            console.log(response);
+            navigate('/Dashboard/MyCart/FinalPage');
+        }).catch((error) => console.log(error));
+    }
 
     return (
         <div className='ordersummary-container'>
@@ -17,7 +28,9 @@ function OrderSummary(props) {
             }
             </div>
             <div className='order-place-order-button'>
-                <Button size='small' variant='contained' sx={{width: '13%'}}>Checkout</Button>
+                <Button size='small' variant='contained' className='checkout-button' onClick={placeTheOrder}>
+                    Checkout
+                </Button>
             </div>
         </div>
     );

@@ -12,12 +12,14 @@ import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { userSignin } from '../../service/user.service';
+import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const emailRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&-+=()])([a-zA-Z0-9]*).{8,}$/;
 
 function Signin(props) {
-
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = React.useState(false);
 
     const [signinObj, setSigninObj] = React.useState({email: '', password: ''});
@@ -58,6 +60,7 @@ function Signin(props) {
             userSignin(signinObj).then((response) => {
                 console.log(response);
                 localStorage.setItem('token', response.data.data);
+                navigate('/Dashboard');
             }).catch((error) => console.log(error))
         }
     }
@@ -69,7 +72,7 @@ function Signin(props) {
                 <div style={{color: 'gray'}} className='form-name-container' onClick={switchForm}>signup</div>
             </div>
             <div className='signin-form-content'>
-                <TextField label="Email id" variant="outlined" size="small" className='form-content'
+                <TextField sx={{width: '65%' }} label="Email id" variant="outlined" size="small" className='form-content'
                 error={regexObj.emailBorder} helperText={regexObj.emailHelper} onChange={getEmail}/>
                 <FormControl sx={{ m: 1, width: '65%' }} variant="outlined" size="small">
                     <InputLabel htmlFor="outlined-adornment-password" error={regexObj.passwordBorder}>Password</InputLabel>
@@ -91,7 +94,7 @@ function Signin(props) {
                         label="Password" error={regexObj.passwordBorder}/>
                         <FormHelperText id="outlined-adornment-password" error={regexObj.passwordBorder}>{regexObj.passwordHelper}</FormHelperText>
                 </FormControl>
-                <Button variant='contained' style={{width: 220, backgroundColor: "#A03037", opacity: 1}} size="small" onClick={testUserDetails}>login</Button>
+                <Button variant='contained' style={{width: '65%', backgroundColor: "#A03037", opacity: 1}} size="small" onClick={testUserDetails}>login</Button>
                 <Divider style={{width:'70%'}} ><span className='or-content'>OR</span></Divider>
                 <div className='signin-options-container'>
                     <Button variant='contained' style={{ width: '40%', backgroundColor: "#4266B2", opacity: 1}} size="small"><span className='facebook-letter'>Facebook</span></Button>

@@ -62,3 +62,8 @@ export const addCustomerInfo = (customerObj) => {
     let response = axios.post(`http://localhost:5000/api/v1/customers`, customerObj, headerConfig);
     return response;
 }
+
+export const placeOrder = () => {
+    let response = axios.put(`http://localhost:5000/api/v1/orders`, null, headerConfig);
+    return response;
+}
