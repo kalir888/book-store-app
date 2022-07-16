@@ -34,6 +34,7 @@ export const getCart = () => {
 }
 
 export const updateCart = (bookId,updateObj) => {
+    console.log(updateObj);
     let response = axios.put(`http://localhost:5000/api/v1/carts/${bookId}`, updateObj, headerConfig);
     return response;
 }

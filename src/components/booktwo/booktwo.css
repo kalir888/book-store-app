@@ -1,11 +1,12 @@
 .booktwo {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .booktwo-title-container {
     width: 70%;
+    height: 20vh;
     display: flex;
 }
 

@@ -14,6 +14,7 @@ function BookThree(props) {
         updateCart(props.book.productId, {quantity: quantity})
         .then((response) => {
             console.log(response);
+            props.getCartBooks();
         })
         .catch((error) => console.log(error));
     }
@@ -24,13 +25,17 @@ function BookThree(props) {
             updateCart(props.book.productId, {quantity: quantity})
             .then((response) => {
                 console.log(response);
+                props.getCartBooks();
             })
             .catch((error) => console.log(error));
         }
     }
 
     const removeBook = () => {
-        deleteFromCart(props.book.productId).then((response) => console.log(response)).catch((error) => console.log(error));
+        deleteFromCart(props.book.productId).then((response) => { 
+            console.log(response);
+            props.getCartBooks();
+        }).catch((error) => console.log(error));
     }
 
     return (

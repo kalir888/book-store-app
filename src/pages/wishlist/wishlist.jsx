@@ -10,17 +10,22 @@ function Wishlist(props) {
 
     const [books, setBooks] = React.useState([]);
 
+    const getWishListBooks = () => {
+        getWishlist().then((response) => {
+            setBooks(response.data.data.books)
+        })
+    }
+
     const deleteBook = (bookId) => {
         deleteFromList(bookId).then((response) => {
             console.log(response)
+            getWishListBooks();
         }).catch((error) => console.log(error));
     }
 
     React.useEffect(() => {
-        getWishlist().then((response) => {
-            setBooks(response.data.data.books)
-        })
-    })
+        getWishListBooks();
+    },[])
 
     return (
         <div className='wishlist-page-container'>

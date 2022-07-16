@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import './dashboard.css';
 import BookTwo from '../../components/booktwo/booktwo';
+import Pagination from '@mui/material/Pagination';
 
 function Dashboard() {
 
@@ -20,15 +21,52 @@ function Dashboard() {
 
     const [userCart, setUserCart] = React.useState([]);
 
+    const [page, setPage] = React.useState(1);
+
+    const [pageBooks, setPageBooks] = React.useState([]);
+
+    const showSearchingBooks = (string) => {
+        let neededBooks = allBooks.filter((book) => book.bookName.toLowerCase().includes(string.toLowerCase()));
+        console.log(neededBooks);
+        setPageBooks(neededBooks);
+        if(string.trim().length === 0) {
+            getFirstPage(allBooks);
+        }
+    }
+
+    const getFirstPage = (books) => {
+        setAllBooks(books);
+        let neededBooks = books.filter((book, index) => (index < 8 && index >= 0));
+        console.log(neededBooks);
+        setPageBooks(neededBooks);
+    }
+
     const changeBookStatus = (book) => {
         setShowBookTwo(true);
         setBookToShow(book);
     }
 
+    const nextPage = (e, value) => {
+        if(value === undefined) {
+            value = 1;
+        }
+        console.log(value);
+        setPage(value);
+        if(value > 3) {
+            value = value % 3;
+            (value === 0) ? value = value + 3 : value = value; 
+        }
+        const noOfBooks = 8;
+        let miniIndex = (value * noOfBooks) - noOfBooks;
+        let maxIndex = (value * noOfBooks) - 1;
+        let books = allBooks.filter((book, index) => (index <= maxIndex && index >= miniIndex));
+        setPageBooks(books);
+    }
+
     React.useEffect(() => {
         getAllBooks().then((response) => {
             console.log(response)
-            setAllBooks(response.data.data);
+            getFirstPage(response.data.data);
         }).catch((error) => console.log(error));
         getCart().then((response) => {
             console.log(response);
@@ -38,7 +76,7 @@ function Dashboard() {
 
     return (
         <div className='dashboard-container'>
-            <Header/>
+            <Header showSearchingBooks={showSearchingBooks}/>
             {
                 showBookTwo 
                 ?
@@ -62,11 +100,12 @@ function Dashboard() {
                             </Select>
                         </FormControl>
                     </div>
-                    <Grid  container style={{width: '70vw', display: 'flex'}} className='all-books-container' spacing={2} columns={{ xs: 8, sm: 12, md: 12}}>
-                        {allBooks.map(book => <Grid key={book._id} item lg={9}>
+                    <Grid  container style={{width: '70vw', display: 'flex'}} className='all-books-container' spacing={8} columns={{ xs: 8, sm: 12, md: 12}}>
+                        {pageBooks.map(book => <Grid key={book._id} item lg={9}>
                             <BookOne key={book._id} book={book} changeBookStatus={changeBookStatus}/>
                             </Grid>)}
                     </Grid>
+                    <Pagination page={page} defaultPage={1} onChange={nextPage} count={10} />
                 </>
             }
             

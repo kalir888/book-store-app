@@ -45,9 +45,13 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-function Header() {
+function Header(props) {
 
     const navigate = useNavigate();
+
+    const fetchBooks = (event) => {
+      props.showSearchingBooks(event.target.value);
+    } 
 
     return (
         <div className='header-container'>
@@ -62,6 +66,7 @@ function Header() {
                 <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
+                onChange={fetchBooks}
                 />
             </Search>
             <div className='header-options-container'>

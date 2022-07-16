@@ -20,8 +20,6 @@ function MyCart(props) {
 
     const [sectThree, setSectThree] = React.useState(false);
 
-    const [crudClick, setCrudClick] = React.useState(0);
-
     const showCustomerDetails = () => {
         setSectTwo(true);
     }
@@ -29,12 +27,16 @@ function MyCart(props) {
     const showOrderSummary = () => {
         setSectThree(true);
     }
- 
-    React.useEffect(() => {
+
+    const getCartBooks = () => {
         getCart().then((response) => {
             console.log(response.data.data);
             setAllBooks(response.data.data.books);
         }).catch((error) => console.log(error));
+    }
+ 
+    React.useEffect(() => {
+        getCartBooks();
     },[])
 
     return (
@@ -62,7 +64,7 @@ function MyCart(props) {
                     </div>
                     <div className='mycart-booklist'>
                     {
-                        allBooks.map(book => <BookThree book={book} key={book.productId} style={{border: '1px solid red'}}/>)
+                        allBooks.map(book => <BookThree getCartBooks={getCartBooks} book={book} key={book.productId}/>)
                     }
                     </div>
                     <div className='mycart-place-order-button'>

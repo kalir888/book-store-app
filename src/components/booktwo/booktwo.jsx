@@ -21,7 +21,7 @@ function BookTwo(props) {
 
     const [showQuantButton, setShowQuantButton] = React.useState(false);
 
-    const [quantity, setQuantity] = React.useState(props.book.quantity);
+    const [quantity, setQuantity] = React.useState(0);
     
     const plusClickHandler = () => {
         setQuantity((prevState) => prevState + 1);
@@ -35,7 +35,7 @@ function BookTwo(props) {
     const minusClickHandler = () => {
         if(quantity > 1) {
             setQuantity((prevState) => prevState - 1);
-            updateCart(props.book._id, {quantity: quantity})
+            updateCart(props.book._id, {quantity: quantity+1})
             .then((response) => {
                 console.log(response);
             })
@@ -47,7 +47,7 @@ function BookTwo(props) {
         let bookIndex = await cart.findIndex(book => book.productId === props.book._id);
         if(bookIndex !== -1) {
             setShowQuantButton(true);
-            setQuantity(cart[bookIndex].quantity)
+            setQuantity(cart[bookIndex].quantity);
         }else if(bookIndex === -1){
             setShowQuantButton(false);
         }
