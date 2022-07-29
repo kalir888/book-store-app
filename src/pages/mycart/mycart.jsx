@@ -11,14 +11,16 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import BookThree from '../../components/bookthree/bookthree';
 import CustomerDetails from '../../components/customerdetails/customerdetails';
 import OrderSummary from '../../components/ordersummary/ordersummary';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBookList } from '../../components/redux/actions/cart';
 
 function MyCart(props) {
-
-    const [allBooks, setAllBooks] = React.useState([]);
 
     const [sectTwo, setSectTwo] = React.useState(false);
 
     const [sectThree, setSectThree] = React.useState(false);
+
+    const dispatch = useDispatch();
 
     const showCustomerDetails = () => {
         setSectTwo(true);
@@ -29,15 +31,20 @@ function MyCart(props) {
     }
 
     const getCartBooks = () => {
-        getCart().then((response) => {
-            console.log(response.data.data);
-            setAllBooks(response.data.data.books);
-        }).catch((error) => console.log(error));
+        getCart().then((response) => { 
+            dispatch(getBookList(response.data.data.books))
+            }).catch((error) => console.log(error));
     }
+
+    let books = useSelector((state) => state.getBookList.books);
+
+
  
-    React.useEffect(() => {
+    /* React.useEffect(() => {
         getCartBooks();
-    },[])
+    },[]) */
+
+    getCartBooks();
 
     return (
         <div className='mycart-page-container'>
@@ -50,7 +57,7 @@ function MyCart(props) {
                 <div className='mycart-section-one'>
                     <div className='mycart-sect-one-header'>
                         <Typography sx={{fontWeight: 500, fontSize: 'x-large', fontFamily: 'sans-serif', 
-                        textAlign: 'left'}}>My cart({allBooks.length})</Typography>
+                        textAlign: 'left'}}>My cart({books.length})</Typography>
                         <FormControl sx={{ m: 1, width: '25%'}} size="small">
                             <InputLabel id="demo-select-small">select</InputLabel>
                             <Select labelId="demo-select-small" id="demo-select-small" label="filter">
@@ -64,7 +71,7 @@ function MyCart(props) {
                     </div>
                     <div className='mycart-booklist'>
                     {
-                        allBooks.map(book => <BookThree getCartBooks={getCartBooks} book={book} key={book.productId}/>)
+                        books.map(book => <BookThree getCartBooks={getCartBooks} book={book} key={book.productId}/>)
                     }
                     </div>
                     <div className='mycart-place-order-button'>
@@ -86,7 +93,7 @@ function MyCart(props) {
                 {
                     sectThree
                     ?
-                    <OrderSummary books={allBooks}/> 
+                    <OrderSummary books={books}/> 
                     :
                     <div className='mycart-section-three'>
                         <Typography sx={{fontSize: 'x-large', width: '90%', textAlign: 'left'}}>Order summary</Typography>

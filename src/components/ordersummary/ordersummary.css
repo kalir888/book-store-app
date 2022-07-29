@@ -8,12 +8,11 @@
     border: 1px solid lightgray;
 }
 
-.order-sect-one-header {
+.order-header {
     width: 90%;
     height: 20%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: left;
 }
 
 .order-booklist {

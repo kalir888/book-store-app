@@ -79,13 +79,13 @@
 }
 
 .bookthree-quantity-option-container {
-    width: 30%;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .quantity {
-    width: 40%;
+    width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,7 +102,7 @@
 }
 
 .bookthree-remove-button-container {
-    width: 40%;
+    width: 20%;
     background-color: white;
     font-size: 16px;
     cursor: pointer;
